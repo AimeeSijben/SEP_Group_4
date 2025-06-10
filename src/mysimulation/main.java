@@ -1,6 +1,8 @@
 package mysimulation;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.List;
 
 public class main {
     private static int clockTime = 2000;
@@ -27,9 +29,8 @@ public class main {
     }
 
 
-    public void Simulate(){
+    private void Simulate(Scanner scanner){
 
-        Scanner scanner = new Scanner(System.in);
         Thread commandThread = new Thread(() -> Commands(scanner));
         commandThread.setDaemon(true);
         commandThread.start();
@@ -59,8 +60,29 @@ public class main {
 
     }
 
+    public void getroad(Scanner scanner){
+        List<String> inputLines = new ArrayList<>();
+
+        System.out.println("Enter grid rows (use symbols like ↓ → ← ↑ E), one row per line.");
+        System.out.println("Type END to finish:");
+
+        while (true) {
+            String line = scanner.nextLine();
+            if (line.trim().equalsIgnoreCase("END")) {
+                break;
+            }
+            inputLines.add(line);
+        }
+
+        grid grid = new grid(0,0); // assumes you have a no-arg constructor
+        grid.loadFromText(inputLines);
+        grid.printGrid();
+    }
+
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         main simulation = new main();
-        simulation.Simulate();
+        simulation.getroad(scanner);
+        simulation.Simulate(scanner);
     }
 }
