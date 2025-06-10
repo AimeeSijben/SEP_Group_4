@@ -68,7 +68,7 @@ public class main {
 
         while (true) {
             String line = scanner.nextLine();
-            if (line.trim().equalsIgnoreCase("END")) {
+            if (line.trim().equals("end")) {
                 break;
             }
             inputLines.add(line);
