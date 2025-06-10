@@ -78,7 +78,7 @@ public void move(Grid grid){
         }
     }
 
-    this.speed = currentSpeed
+    this.speed = currentSpeed;
 
     //moving the car if allowed
     if (canMoveTick && this.speed > 0 && nextCell != null){
