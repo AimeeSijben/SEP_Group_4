@@ -15,17 +15,18 @@ public class TrafficLight {
 
     int max(int a,int b) {  
         return a>b?a:b;
-
-    int min(int a,int b) {  
-                return a>b?b:a;  
     }
-    boolean isPerpendicular(Direction a, Direction b){
+    int min(int a, int b) {
+        return a > b ? b : a;
+    }
 
-        return (a == Direction.NORTH && (b == Direction.EAST || b==Direction.WEST)) ||
-           (a == Direction.SOUTH && (b == Direction.EAST || b==Direction.WEST))||
-           (b == Direction.NORTH && (a == Direction.EAST || a==Direction.WEST)) ||
-           (b == Direction.NORTH && (a == Direction.EAST || a==Direction.WEST)) ;
-           
+    boolean isPerpendicular(Direction a, Direction b) {
+
+        return (a == Direction.NORTH && (b == Direction.EAST || b == Direction.WEST)) ||
+                (a == Direction.SOUTH && (b == Direction.EAST || b == Direction.WEST)) ||
+                (b == Direction.NORTH && (a == Direction.EAST || a == Direction.WEST)) ||
+                (b == Direction.NORTH && (a == Direction.EAST || a == Direction.WEST));
+
     }
 
     public TrafficLight(int cycleLength, Direction dir) {
