@@ -3,10 +3,12 @@ package mysimulation;
 public class cell {
     public enum Type {
         EMPTY,
+        SPAWN,
         ROADUP,
         ROADDOWN,
         ROADLEFT,
-        ROADRIGHT
+        ROADRIGHT,
+        INTERSECTION
     }
 
     private Type type;
@@ -29,6 +31,8 @@ public class cell {
             case ROADDOWN -> "↓";
             case ROADLEFT -> "←";
             case ROADRIGHT -> "→";
+            case INTERSECTION -> "X";
+            case SPAWN -> "S";
             default -> "E";
         };
     }
