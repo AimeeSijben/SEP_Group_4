@@ -6,6 +6,40 @@
 Description: A simulation of a intersection of two roads with a traffic light, where the traffic light controls the flow of cars through traffic
 
 Programming Language: Java
+
+## Initial Tests
+
+### Vincent Initial Test
+Tested Road.java, created spawnCars_WhenArrivalRateIsOne_ShouldEnqueueCarWithCorrectTimestamp, which tests if spawnCars enqueues a new car with the correct time stamp. Coverage was calculated using Jacoco, a tool that works with gradle to produce HTML files with coverage results. Coverage was less than 1%.
+![](.\out\plantuml\Test-Coverage-Results\OneRoadTest.png)
+
+
+Add more initial tests here
+
+
+# Coverage Improvement
+
+### Vincent coverage improvement
+https://github.com/AimeeSijben/SEP_Group_4/commit/d0473814d3017ae5ebd90c05dd55dda85c8edacd
+https://github.com/AimeeSijben/SEP_Group_4/commit/2a5f81d4791af26d485d1995db64a29e5573f7b4 
+In each commit, I added a new test to RoadTest.java. By adding these two tests, the coverage of the entire program increased from less than 1% to 6%
+![](.\out\plantuml\Test-Coverage-Results\ThreeRoadTests.png)
+
+
+Add more coverage improvements here
+
+
+
+
+| Member | Three functions (names with links to the code on the repository) created | Initial test (name) | Other tests (names) |
+| --- | --- | --- | --- |
+| Vincent Wren-Larocca | [Functions within Road.java](https://github.com/AimeeSijben/SEP_Group_4/blob/main/src/mysimulation/Road.java) | spawnCars_WhenArrivalRateIsOne_ShouldEnqueueCarWithCorrectTimestamp| spawnCars_WhenArrivalRateIsZero_ShouldNotEnqueueAnyCars, serve_WhenDirectionNegative_ShouldServeOnlyNegativeLane|
+| Member B | | | |
+| Member C | | | |
+| Member D | | | |
+
+
+
 1. Car Movement Logic (@startuml car)
 
 Purpose: Shows the decision-making process for car movement
@@ -142,36 +176,5 @@ Features:
     Explicit state machine via enum
 ![](.\out\plantuml\trafficlightdiagram\traffic_light.svg)
 
-
-## Initial Tests
-
-### Vincent Initial Test
-Tested Road.java, created spawnCars_WhenArrivalRateIsOne_ShouldEnqueueCarWithCorrectTimestamp, which tests if spawnCars enqueues a new car with the correct time stamp. Coverage was calculated using Jacoco, a tool that works with gradle to produce HTML files with coverage results. Coverage was less than 1%.
-![](.\out\plantuml\Test-Coverage-Results\OneRoadTest.png)
-
-
-Add more initial tests here
-
-
-# Coverage Improvement
-
-### Vincent coverage improvement
-https://github.com/AimeeSijben/SEP_Group_4/commit/d0473814d3017ae5ebd90c05dd55dda85c8edacd
-https://github.com/AimeeSijben/SEP_Group_4/commit/2a5f81d4791af26d485d1995db64a29e5573f7b4 
-In each commit, I added a new test to RoadTest.java. By adding these two tests, the coverage of the entire program increased from less than 1% to 6%
-![](.\out\plantuml\Test-Coverage-Results\ThreeRoadTests.png)
-
-
-Add more coverage improvements here
-
-
-
-
-| Member | Three functions (names with links to the code on the repository) created | Initial test (name) | Other tests (names) |
-| --- | --- | --- | --- |
-| Vincent Wren-Larocca | [Functions within Road.java](https://github.com/AimeeSijben/SEP_Group_4/blob/main/src/mysimulation/Road.java) | spawnCars_WhenArrivalRateIsOne_ShouldEnqueueCarWithCorrectTimestamp| spawnCars_WhenArrivalRateIsZero_ShouldNotEnqueueAnyCars, serve_WhenDirectionNegative_ShouldServeOnlyNegativeLane|
-| Member B | | | |
-| Member C | | | |
-| Member D | | | |
 
 
