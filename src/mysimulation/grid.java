@@ -179,7 +179,7 @@ public class Grid {
 
         for (int r = 0; r < this.rows; r++) {
             for (int c = 0; c < this.collums; c++) {
-                Car car = this.grid[r][c].getcar();
+                Car car = this.Grid[r][c].getCar();
 
                 // only move if car exists and hasn't moved yet
                 if (car != null && !moved.contains(car.getId())) {
@@ -190,13 +190,13 @@ public class Grid {
                     // Check if destination is valid
                     if (newRow >= 0 && newRow < rows &&
                             newCol >= 0 && newCol < collums &&
-                            this.grid[newRow][newCol].getcar() == null &&
-                            this.grid[newRow][newCol].getType() != cell.Type.EMPTY) {
+                            this.Grid[newRow][newCol].getCar() == null &&
+                            this.Grid[newRow][newCol].getType() != Cell.Type.EMPTY) {
 
-                        this.grid[newRow][newCol].setCar(car);
+                        this.Grid[newRow][newCol].setCar(car);
                         moved.add(car.getId());
                     }
-                    this.grid[r][c].setCar(null);
+                    this.Grid[r][c].setCar(null);
                 }
             }
         }
