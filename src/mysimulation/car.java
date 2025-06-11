@@ -1,25 +1,25 @@
 package mysimulation;
 
-public class Car {
+public class Car{
     private static long idCounter = 0;
     private final long id;
     private final long arrivalTick;
 
-    public Car(long tick) {
-        this.id = idCounter++; //Assign ID
-        this.arrivalTick = tick; //Record arrival time
+    public Car(long tick){
+        this.id = idCounter++;
+        this.arrivalTick = tick;
     }
 
-    public long getId() {
+    public long getId(){
         return id;
     }
 
-    public long getArrivalTick() {
+    public long getArrivalTick(){
         return arrivalTick;
     }
 
     @Override
-    public String toString() {
-        return "Car#" + id + "(arrived:" + arrivalTick + ")";
+    public String toString(){
+        return "Car#" + id + "arrived at: arrivalTick";
     }
 }
