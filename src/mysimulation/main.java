@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
 
-public class Main {
-    public static int clockTime = 2000;
+public class main {
+    public static int clockTime = 0;
     private volatile boolean paused = false;
     private volatile boolean running = true;
 
-    private void Commands(Scanner commands) {
-        while (true) {
+    private void Commands(Scanner commands){
+        while(true){
             String input = commands.nextLine().trim().toLowerCase();
             switch (input) {
                 case "start":
@@ -28,30 +28,32 @@ public class Main {
         }
     }
 
-    private void Simulate(Scanner scanner) {
+
+    private void Simulate(Scanner scanner){
 
         Thread commandThread = new Thread(() -> Commands(scanner));
         commandThread.setDaemon(true);
         commandThread.start();
 
         while (running) {
-            if (!paused) {
+            if (!paused){
                 /*
-                 * loop(trafic lights){
-                 * if( color =green ){
-                 * remove care from que at stop light
-                 * add that care to moving
-                 * } esle{
-                 * do nothing
-                 * }
-                 * } loop is for later if we want more intersections
-                 * from vihevile add new vihecile
-                 */
-            } else {
+                loop(trafic lights){
+                    if( color =green ){
+                        remove care from que at stop light
+                        add that care to moving
+                    } esle{
+                    do nothing
+                    }
+                } loop is for later if we want more intersections
+                from vihevile add new vihecile
+                */
+            }else{
                 System.out.println("Paused.\n");
             }
+            clockTime ++;
             try {
-                Thread.sleep(clockTime); // 1000 milliseconds = 1 second
+                Thread.sleep(3000); // 1000 milliseconds = 1 second
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -59,7 +61,7 @@ public class Main {
 
     }
 
-    public void getroad(Scanner scanner) {
+    public void getroad(Scanner scanner){
         List<String> inputLines = new ArrayList<>();
 
         System.out.println("Enter grid rows (use symbols like ↓ → ← ↑ E), one row per line.");
@@ -73,14 +75,14 @@ public class Main {
             inputLines.add(line);
         }
 
-        Grid grid = new Grid(0, 0); // assumes you have a no-arg constructor
+        grid grid = new grid(0,0); // assumes you have a no-arg constructor
         grid.loadFromText(inputLines);
         grid.printGrid();
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Main simulation = new Main();
+        main simulation = new main();
         simulation.getroad(scanner);
         simulation.Simulate(scanner);
     }
