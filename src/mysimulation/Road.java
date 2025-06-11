@@ -6,22 +6,24 @@ import java.util.Random;
 
 /**
  * A Road with two one‐way lanes (opposite directions).
- * Vehicles arrive randomly on each lane and wait in a FIFO queue.
+ * Cars arrive randomly on each lane and wait in a FIFO queue.
  */
 public class Road {
-    public enum Direction { POSITIVE, NEGATIVE }
-    
+    public enum Direction {
+        POSITIVE, NEGATIVE
+    }
+
     private final String name;
-    private final double arrivalRate;      // probability per tick of a new car
+    private final double arrivalRate; // probability per tick of a new car
     private final Random rng;
-    
+
     // one queue for each direction
-    private final Queue<Vehicle> queuePos = new ArrayDeque<>();
-    private final Queue<Vehicle> queueNeg = new ArrayDeque<>();
+    private final Queue<Car> queuePos = new ArrayDeque<>();
+    private final Queue<Car> queueNeg = new ArrayDeque<>();
 
     /**
      * @param name        a label for logging (e.g. "North–South")
-     * @param arrivalRate 0.0–1.0 chance per tick of spawning a Vehicle in each lane
+     * @param arrivalRate 0.0–1.0 chance per tick of spawning a Car in each lane
      */
     public Road(String name, double arrivalRate) {
         this.name = name;
@@ -34,27 +36,29 @@ public class Road {
         return name;
     }
 
-    /** 
-     * On each tick, possibly spawn one new Vehicle in each direction queue.
+    /**
+     * On each tick, possibly spawn one new Car in each direction queue.
+     * 
      * @param tick the current tick number (used to timestamp arrivals)
      */
-    public void spawnVehicles(long tick) {
+    public void spawnCars(long tick) {
         spawnIn(queuePos, tick);
         spawnIn(queueNeg, tick);
     }
 
-    private void spawnIn(Queue<Vehicle> q, long tick) {
+    private void spawnIn(Queue<Car> q, long tick) {
         if (rng.nextDouble() < arrivalRate) {
-            q.add(new Vehicle(tick));
+            q.add(new Car(tick));
         }
     }
 
     /**
-     * Serve up to capacity vehicles from the green lanes.
+     * Serve up to capacity Cars from the green lanes.
      * If both directions are green, they'll each get up to capacity.
+     * 
      * @param dir      which lane(s) have green: POSITIVE, NEGATIVE or BOTH
-     * @param capacity max vehicles to dequeue per green lane
-     * @return total vehicles that actually crossed
+     * @param capacity max Cars to dequeue per green lane
+     * @return total Cars that actually crossed
      */
     public int serve(Direction dir, int capacity) {
         int served = 0;
@@ -67,8 +71,8 @@ public class Road {
         return served;
     }
 
-    /** helper to dequeue up to n vehicles */
-    private int dequeueUpTo(Queue<Vehicle> q, int n) {
+    /** helper to dequeue up to n Cars */
+    private int dequeueUpTo(Queue<Car> q, int n) {
         int cnt = 0;
         while (cnt < n && !q.isEmpty()) {
             q.poll();
@@ -77,21 +81,22 @@ public class Road {
         return cnt;
     }
 
-    /** 
+    /**
      * @param dir which lane to measure; null for total
-     * @return current queue length 
+     * @return current queue length
      */
     public int getQueueLength(Direction dir) {
-        if (dir == Direction.POSITIVE) return queuePos.size();
-        if (dir == Direction.NEGATIVE) return queueNeg.size();
+        if (dir == Direction.POSITIVE)
+            return queuePos.size();
+        if (dir == Direction.NEGATIVE)
+            return queueNeg.size();
         return queuePos.size() + queueNeg.size();
     }
 
     @Override
     public String toString() {
         return String.format(
-            "%s [→:%d  ←:%d]", 
-            name, queuePos.size(), queueNeg.size()
-        );
+                "%s [→:%d  ←:%d]",
+                name, queuePos.size(), queueNeg.size());
     }
 }
