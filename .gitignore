@@ -1,0 +1,18 @@
+# Gradle caches and build output
+.gradle/
+build/
+
+# Eclipse/IntelliJ project files 
+.idea/
+*.iml
+
+# OS-specific files 
+.DS_Store
+thumbs.db
+
+# Logs and temporary files
+*.log
+gradlew
+gradlew.bat
+
+
