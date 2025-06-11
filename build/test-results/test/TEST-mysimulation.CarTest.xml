@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="mysimulation.CarTest" tests="4" skipped="0" failures="1" errors="0" timestamp="2025-06-11T08:35:28" hostname="DESKTOP-BPTHFCI" time="0.158">
+<testsuite name="mysimulation.CarTest" tests="4" skipped="0" failures="1" errors="0" timestamp="2025-06-11T08:36:55" hostname="DESKTOP-BPTHFCI" time="0.146">
   <properties/>
-  <testcase name="testCarId()" classname="mysimulation.CarTest" time="0.109"/>
-  <testcase name="testDequeueCarGREEN()" classname="mysimulation.CarTest" time="0.022"/>
-  <testcase name="testNotDequeueCarRED()" classname="mysimulation.CarTest" time="0.02">
+  <testcase name="testCarId()" classname="mysimulation.CarTest" time="0.105"/>
+  <testcase name="testDequeueCarGREEN()" classname="mysimulation.CarTest" time="0.019"/>
+  <testcase name="testNotDequeueCarRED()" classname="mysimulation.CarTest" time="0.017">
     <failure message="org.opentest4j.AssertionFailedError: Light should be red ==&gt; expected: &lt;RED&gt; but was: &lt;GREEN&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: Light should be red ==&gt; expected: &lt;RED&gt; but was: &lt;GREEN&gt;
 	at app//org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at app//org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)

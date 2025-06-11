@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="mysimulation.TrafficLightTest" tests="37" skipped="0" failures="1" errors="0" timestamp="2025-06-11T08:35:28" hostname="DESKTOP-BPTHFCI" time="0.522">
+<testsuite name="mysimulation.TrafficLightTest" tests="37" skipped="0" failures="1" errors="0" timestamp="2025-06-11T08:36:56" hostname="DESKTOP-BPTHFCI" time="0.493">
   <properties/>
-  <testcase name="isConflict_PerpendicularWithDivisibleCycles_ReturnsTrue()" classname="mysimulation.TrafficLightTest" time="0.006"/>
+  <testcase name="isConflict_PerpendicularWithDivisibleCycles_ReturnsTrue()" classname="mysimulation.TrafficLightTest" time="0.005"/>
   <testcase name="max_FirstArgumentLarger_ReturnsFirst()" classname="mysimulation.TrafficLightTest" time="0.001"/>
-  <testcase name="[1] NORTH, EAST, true" classname="mysimulation.TrafficLightTest" time="0.088"/>
+  <testcase name="[1] NORTH, EAST, true" classname="mysimulation.TrafficLightTest" time="0.094"/>
   <testcase name="[2] NORTH, WEST, true" classname="mysimulation.TrafficLightTest" time="0.001"/>
   <testcase name="[3] SOUTH, EAST, true" classname="mysimulation.TrafficLightTest" time="0.001"/>
-  <testcase name="[4] SOUTH, WEST, true" classname="mysimulation.TrafficLightTest" time="0.002"/>
-  <testcase name="[5] EAST, NORTH, true" classname="mysimulation.TrafficLightTest" time="0.001"/>
+  <testcase name="[4] SOUTH, WEST, true" classname="mysimulation.TrafficLightTest" time="0.001"/>
+  <testcase name="[5] EAST, NORTH, true" classname="mysimulation.TrafficLightTest" time="0.0"/>
   <testcase name="[6] WEST, NORTH, true" classname="mysimulation.TrafficLightTest" time="0.001"/>
   <testcase name="[7] NORTH, SOUTH, false" classname="mysimulation.TrafficLightTest" time="0.002"/>
   <testcase name="[8] EAST, WEST, false" classname="mysimulation.TrafficLightTest" time="0.001"/>
   <testcase name="[9] SOUTH, SOUTH, false" classname="mysimulation.TrafficLightTest" time="0.001"/>
-  <testcase name="min_SecondArgumentSmaller_ReturnsSecond()" classname="mysimulation.TrafficLightTest" time="0.0"/>
-  <testcase name="min_FirstArgumentSmaller_ReturnsFirst()" classname="mysimulation.TrafficLightTest" time="0.0"/>
+  <testcase name="min_SecondArgumentSmaller_ReturnsSecond()" classname="mysimulation.TrafficLightTest" time="0.001"/>
+  <testcase name="min_FirstArgumentSmaller_ReturnsFirst()" classname="mysimulation.TrafficLightTest" time="0.001"/>
   <testcase name="constructor_PositiveCycleLength_SetsInitialStateToRed()" classname="mysimulation.TrafficLightTest" time="0.0"/>
   <testcase name="min_EqualArguments_ReturnsEither()" classname="mysimulation.TrafficLightTest" time="0.001"/>
-  <testcase name="update_TimerAtMultipleCycles_ChangesStateAppropriately()" classname="mysimulation.TrafficLightTest" time="0.001">
+  <testcase name="update_TimerAtMultipleCycles_ChangesStateAppropriately()" classname="mysimulation.TrafficLightTest" time="0.002">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;GREEN&gt; but was: &lt;RED&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;GREEN&gt; but was: &lt;RED&gt;
 	at app//org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at app//org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -106,27 +106,27 @@
 	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
 </failure>
   </testcase>
-  <testcase name="constructor_NonPositiveCycleLength_ThrowsException()" classname="mysimulation.TrafficLightTest" time="0.013"/>
+  <testcase name="constructor_NonPositiveCycleLength_ThrowsException()" classname="mysimulation.TrafficLightTest" time="0.014"/>
   <testcase name="[1] 0" classname="mysimulation.TrafficLightTest" time="0.003"/>
-  <testcase name="[2] 2" classname="mysimulation.TrafficLightTest" time="0.001"/>
-  <testcase name="[3] 4" classname="mysimulation.TrafficLightTest" time="0.001"/>
-  <testcase name="[4] 6" classname="mysimulation.TrafficLightTest" time="0.001"/>
-  <testcase name="[5] 8" classname="mysimulation.TrafficLightTest" time="0.001"/>
+  <testcase name="[2] 2" classname="mysimulation.TrafficLightTest" time="0.0"/>
+  <testcase name="[3] 4" classname="mysimulation.TrafficLightTest" time="0.0"/>
+  <testcase name="[4] 6" classname="mysimulation.TrafficLightTest" time="0.002"/>
+  <testcase name="[5] 8" classname="mysimulation.TrafficLightTest" time="0.0"/>
   <testcase name="[6] -2" classname="mysimulation.TrafficLightTest" time="0.001"/>
-  <testcase name="[7] -4" classname="mysimulation.TrafficLightTest" time="0.001"/>
-  <testcase name="isConflict_PerpendicularWithNonDivisibleCycles_ReturnsFalse()" classname="mysimulation.TrafficLightTest" time="0.006"/>
+  <testcase name="[7] -4" classname="mysimulation.TrafficLightTest" time="0.0"/>
+  <testcase name="isConflict_PerpendicularWithNonDivisibleCycles_ReturnsFalse()" classname="mysimulation.TrafficLightTest" time="0.005"/>
   <testcase name="max_SecondArgumentLarger_ReturnsSecond()" classname="mysimulation.TrafficLightTest" time="0.001"/>
   <testcase name="[1] 1" classname="mysimulation.TrafficLightTest" time="0.001"/>
   <testcase name="[2] 3" classname="mysimulation.TrafficLightTest" time="0.001"/>
   <testcase name="[3] 5" classname="mysimulation.TrafficLightTest" time="0.0"/>
-  <testcase name="[4] 7" classname="mysimulation.TrafficLightTest" time="0.001"/>
+  <testcase name="[4] 7" classname="mysimulation.TrafficLightTest" time="0.0"/>
   <testcase name="[5] -1" classname="mysimulation.TrafficLightTest" time="0.001"/>
   <testcase name="[6] -3" classname="mysimulation.TrafficLightTest" time="0.001"/>
-  <testcase name="setState_NewState_UpdatesCurrentState()" classname="mysimulation.TrafficLightTest" time="0.001"/>
-  <testcase name="max_EqualArguments_ReturnsEither()" classname="mysimulation.TrafficLightTest" time="0.001"/>
+  <testcase name="setState_NewState_UpdatesCurrentState()" classname="mysimulation.TrafficLightTest" time="0.0"/>
+  <testcase name="max_EqualArguments_ReturnsEither()" classname="mysimulation.TrafficLightTest" time="0.0"/>
   <testcase name="update_TimerAtFullCycle_ChangesToRed()" classname="mysimulation.TrafficLightTest" time="0.0"/>
-  <testcase name="update_TimerAtHalfCycle_ChangesToGreen()" classname="mysimulation.TrafficLightTest" time="0.001"/>
-  <testcase name="isConflict_ParallelDirections_ReturnsFalse()" classname="mysimulation.TrafficLightTest" time="0.0"/>
+  <testcase name="update_TimerAtHalfCycle_ChangesToGreen()" classname="mysimulation.TrafficLightTest" time="0.0"/>
+  <testcase name="isConflict_ParallelDirections_ReturnsFalse()" classname="mysimulation.TrafficLightTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
