@@ -11,4 +11,14 @@ public enum Direction {
             case WEST -> EAST;
         };
     }
+    public Position move (){
+        return switch (this) {
+            case NORTH -> new Position(-1,0);
+            case SOUTH -> new Position(1,0);
+            case EAST -> new Position(0,1);
+            case WEST -> new Position(0,-1);
+        };
+    }
+
+
 }
