@@ -147,15 +147,16 @@ public class Grid {
                     if (newRow >= 0 && newRow < rows &&
                             newCol >= 0 && newCol < collums &&
                             this.grid[newRow][newCol].getcar() == null &&
-                            this.grid[newRow][newCol].getType() != Cell.Type.EMPTY) {
+                            this.grid[newRow][newCol].getType() != Cell.Type.EMPTY &&
+                            this.grid[newRow][newCol].getType() != Cell.Type.CAR) {
 
                         //check if a car is at a traffic light
                         if(grid[newRow][newCol].isCarAtTraficlight()){
                             //add to que from road
+                        }else{
+                            this.grid[newRow][newCol].setCar(car);
+                            moved.add(car.getId());
                         }
-
-                        this.grid[newRow][newCol].setCar(car);
-                        moved.add(car.getId());
                     }
                     //unmark a car's previous spot .
                     this.grid[r][c].setCar(null);
@@ -165,6 +166,7 @@ public class Grid {
                 TrafficLight trafficLight = this.grid[r][c].getTrafficLight();
                 /*if(trafficLight.getState() == TrafficLight.State.GREEN){
                     // deque cars from road
+                    // move the car one step
                 }*/
 
             }
@@ -179,6 +181,10 @@ public class Grid {
             }
             System.out.println();
         }
+    }
+
+
+}
     }
 
 
