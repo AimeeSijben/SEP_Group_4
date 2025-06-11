@@ -2,6 +2,8 @@ package mysimulation;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 import java.util.Random;
 
 public class Grid {
@@ -46,25 +48,27 @@ public class Grid {
     private void placeTraficlight() {
         int row = intersections.row;
         int col = intersections.col;
+        Map<Direction, Cell.Type> surrounding = getSurroundingTypes(intersections);
+        for (Map.Entry<Direction, Cell.Type> entry : surrounding.entrySet()) {
+            Direction direction = entry.getKey();
+            Cell.Type type = entry.getValue();
 
-        // Check from UP
-        if (row > 0 && grid[row - 1][col].getType() == Cell.Type.ROADDOWN) {
-            grid[row - 1][col].setTrafficLight(new TrafficLight(Main.clockTime, Direction.NORTH));
-        }
+            // Check from UP
+            if (type == Cell.Type.ROADUP && direction == Direction.NORTH) {
+                grid[row + 1][col].setTrafficLight(new TrafficLight(Main.clockTime, direction));
+            }
 
-        // Check from DOWN
-        if (row < rows - 1 && grid[row + 1][col].getType() == Cell.Type.ROADUP) {
-            grid[row + 1][col].setTrafficLight(new TrafficLight(Main.clockTime, Direction.SOUTH));
-        }
+            if (type == Cell.Type.ROADDOWN && direction == Direction.SOUTH) {
+                grid[row - 1][col].setTrafficLight(new TrafficLight(Main.clockTime, direction));
+            }
 
-        // Check from LEFT
-        if (col > 0 && grid[row][col - 1].getType() == Cell.Type.ROADRIGHT) {
-            grid[row][col - 1].setTrafficLight(new TrafficLight(Main.clockTime, Direction.WEST));
-        }
+            if (type == Cell.Type.ROADLEFT && direction == Direction.WEST) {
+                grid[row][col + 1].setTrafficLight(new TrafficLight(Main.clockTime, direction));
+            }
 
-        // Check from RIGHT
-        if (col < collums - 1 && grid[row][col + 1].getType() == Cell.Type.ROADLEFT) {
-            grid[row][col + 1].setTrafficLight(new TrafficLight(Main.clockTime, Direction.EAST));
+            if (type == Cell.Type.ROADRIGHT && direction == Direction.EAST) {
+                grid[row][col - 1].setTrafficLight(new TrafficLight(Main.clockTime, direction));
+            }
         }
     }
 
@@ -90,31 +94,39 @@ public class Grid {
     }
 
     private Car setCar(Position spawn) {
-        int row = spawn.row;
-        int col = spawn.col;
-
-        // Check from UP
-        if (row > 0 && grid[row - 1][col].getType() == Cell.Type.ROADUP) {
-            return new Car(Main.clockTime, Direction.NORTH);
+        Map<Direction, Cell.Type> surrounding = getSurroundingTypes(spawn);
+        for (Map.Entry<Direction, Cell.Type> entry : surrounding.entrySet()) {
+            Direction direction = entry.getKey();
+            Cell.Type type = entry.getValue();
+            if(type == Cell.Type.CAR || type == Cell.Type.ROADDOWN || type == Cell.Type.ROADUP || type == Cell.Type.ROADLEFT || type == Cell.Type.ROADRIGHT){
+                return  new Car(Main.clockTime, direction);
+            }
         }
 
-        // Check from DOWN
-        if (row < rows - 1 && grid[row + 1][col].getType() == Cell.Type.ROADDOWN) {
-            return new Car(Main.clockTime, Direction.SOUTH);
-        }
-
-        // Check from LEFT
-        if (col > 0 && grid[row][col - 1].getType() == Cell.Type.ROADLEFT) {
-            return new Car(Main.clockTime, Direction.WEST);
-        }
-
-        // Check from RIGHT
-        if (col < collums - 1 && grid[row][col + 1].getType() == Cell.Type.ROADRIGHT) {
-            return new Car(Main.clockTime, Direction.EAST);
-        }
-
-        // No incoming road found
+        // not a valid spawn point
         return null;
+    }
+
+    private Map<Direction, Cell.Type> getSurroundingTypes(Position pos) {
+        Map<Direction, Cell.Type> surrounding = new HashMap<>();
+
+        int row = pos.row;
+        int col = pos.col;
+
+        if (row > 0) {
+            surrounding.put(Direction.NORTH, grid[row - 1][col].getType());
+        }
+        if (row < rows - 1) {
+            surrounding.put(Direction.SOUTH, grid[row + 1][col].getType());
+        }
+        if (col > 0) {
+            surrounding.put(Direction.WEST, grid[row][col - 1].getType());
+        }
+        if (col < collums - 1) {
+            surrounding.put(Direction.EAST, grid[row][col + 1].getType());
+        }
+
+        return surrounding;
     }
 
     public void updateGrid() {
@@ -151,9 +163,9 @@ public class Grid {
                 }
                 //  check for green traffic lights
                 TrafficLight trafficLight = this.grid[r][c].getTrafficLight();
-                if(trafficLight.getState() == TrafficLight.State.GREEN){
+                /*if(trafficLight.getState() == TrafficLight.State.GREEN){
                     // deque cars from road
-                }
+                }*/
 
             }
         }
