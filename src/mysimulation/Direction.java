@@ -21,4 +21,12 @@ public enum Direction {
         };
     }
 
+    public int moveRow() {
+        return this.move().row;
+    }
+
+    public int moveCol() {
+        return this.move().col;
+    }
+
 }

@@ -41,7 +41,7 @@ public class Cell {
         this.car = Car;
     }
 
-    public Car getcar() {
+    public Car getCar() {
         return this.car;
     }
 

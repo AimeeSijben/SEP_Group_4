@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
 
-import static mysimulation.Grid.*;
+//import static mysimulation.Grid.*;
 
 public class Main {
     public static int clockTime = 1;
