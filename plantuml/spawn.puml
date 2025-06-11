@@ -1,0 +1,26 @@
+@startuml spawn_operation
+title Car Spawning Mechanism
+
+package "Spawn Point" {
+  class SpawnCell {
+    - spawnRate: int
+    - lastSpawnTime: int
+    + trySpawnCar(currentTime)
+  }
+  
+  SpawnCell --|> Cell : Inheritance
+}
+
+object "Simulation Clock" as clock {
+  time: 2000
+}
+
+clock --> SpawnCell : currentTime
+SpawnCell --> Car : Creates
+
+note top of SpawnCell
+  if (currentTime - lastSpawnTime > spawnRate)
+    and (next cell empty)
+  then spawn new car
+end note
+@enduml

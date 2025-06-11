@@ -1,0 +1,21 @@
+@startuml traffic_light
+title Traffic Light Operation
+
+package "Traffic Light" {
+  class TrafficLight {
+    - currentState: State
+    - cycleLength: int
+    - direction: Direction
+    + update(timer)
+    + isConflict(other): boolean
+    + adjustTiming(queue: queue): void
+  }
+
+  enum State {
+    RED
+    GREEN
+  }
+
+  TrafficLight "1" *-- "1" State : currentState
+}
+@enduml

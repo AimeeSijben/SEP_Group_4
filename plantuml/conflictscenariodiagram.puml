@@ -1,0 +1,42 @@
+@startuml conflict_detection
+title Traffic Light Conflict Scenario
+
+object "Intersection" as intersection {
+  State: INTERSECTION
+}
+
+object "Light NS" as ns_light {
+  Direction: NORTH-SOUTH
+  Cycle: 10s
+  State: GREEN
+}
+
+object "Light EW" as ew_light {
+  Direction: EAST-WEST
+  Cycle: 10s
+  State: GREEN
+}
+
+object "Car 1" as car1 {
+  Direction: NORTH
+  Position: Before intersection
+}
+
+object "Car 2" as car2 {
+  Direction: EAST
+  Position: Before intersection
+}
+
+ns_light --> intersection : Controls
+ew_light --> intersection : Controls
+car1 --> intersection : Moving to
+car2 --> intersection : Moving to
+
+note right 
+  Conflict occurs when:
+  - Lights are perpendicular
+  - Cycles are multiples
+  - Both green simultaneously
+  => Potential collision
+end note
+@enduml

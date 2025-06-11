@@ -1,0 +1,30 @@
+@startuml car
+
+start
+if (Next cell empty?) then (no)
+'space label only for alignment
+label sp_lab0
+label sp_lab1
+'real label
+label lab
+label foo
+:Signal Waiting;
+end
+else (yes)
+if (Traffic light to the right?) then (yes)
+if (Light is green?) then (no)
+
+label sp_lab2
+
+goto sp_lab1
+else (yes)
+
+endif
+
+else (no)
+
+endif
+endif
+:moveCar;
+
+@enduml

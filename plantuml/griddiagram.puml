@@ -1,0 +1,48 @@
+@startuml grid_structure
+title Grid System Structure with Car and TrafficLight as Entities
+
+package "Grid System" {
+  class Grid {
+    - cells: Cell[][]
+    + updateSimulation()
+  }
+  
+  class Cell {
+    - state: Direction
+    - car: Car
+    - trafficLight: TrafficLight
+    + getNextCell(direction): Cell
+  }
+  
+  class Car {
+    - id: int
+    + move()
+  }
+  
+  class TrafficLight {
+    - state: LightState
+    + toggle()
+  }
+
+  enum Direction {
+    NORTH
+    EAST
+    SOUTH
+    WEST
+    EMPTY
+    SPAWN
+    INTERSECTION
+  }
+
+  enum LightState {
+    RED
+    GREEN
+  }
+
+  Grid "1" *-- "*" Cell : contains
+  Cell "1" *-- "1" Direction : state
+  Cell "0..1" *-- "0..1" Car : may hold
+  Cell "0..1" *-- "0..1" TrafficLight : may hold
+  TrafficLight "1" *-- "1" LightState : has
+}
+@enduml

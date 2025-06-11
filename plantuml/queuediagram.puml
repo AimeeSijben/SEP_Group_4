@@ -1,0 +1,27 @@
+@startuml queue
+title Car Detection and Queue Management with Actions
+
+participant Car
+participant "Central Activator System" as Activator
+participant "Car Queue" as Queue
+
+Car -> Activator: Arrives near traffic light
+activate Activator
+Activator -> Activator: Process signal: car is waiting
+activate Queue
+Activator -> Queue: Add car to waiting queue
+deactivate Activator
+Queue -> Queue: Enqueue car
+deactivate Queue
+
+... time passes ...
+
+Car -> Activator: Moves away from traffic light
+activate Activator
+Activator -> Activator: Process signal: car has left
+activate Queue
+Activator -> Queue: Remove car from waiting queue
+deactivate Activator
+Queue -> Queue: Dequeue car
+deactivate Queue
+@enduml
