@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.List;
 
 public class main {
-    public static int clockTime = 0;
+    public static int clockTime = 1;
     private volatile boolean paused = false;
     private volatile boolean running = true;
 
