@@ -20,6 +20,6 @@ public class Car{
 
     @Override
     public String toString(){
-        return "Car#" + id + "arrived at: arrivalTick";
+        return "Car-" + id + "arrived at: arrivalTick";
     }
 }
