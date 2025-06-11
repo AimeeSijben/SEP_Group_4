@@ -175,37 +175,28 @@ public class Grid {
     }
 
     public void moveCar() {
-        List<Position> moved = new ArrayList<>();
+        List<Long> moved = new ArrayList<>();
 
         for (int r = 0; r < this.rows; r++) {
             for (int c = 0; c < this.collums; c++) {
-                Car car = getCell(r, c).getCar();
+                Car car = this.grid[r][c].getcar();
 
-                // Check manually if (r, c) is already in the moved list
-                boolean alreadyMoved = false;
-                for (Position p : moved) {
-                    if (p.row == r && p.col == c) {
-                        alreadyMoved = true;
-                        break;
-                    }
-                }
-
-                if (car != null && !alreadyMoved) {
-                    Position delta = car.calculateDeltaPos(
-                            getNorthCell(r, c), getEastCell(r, c), getSouthCell(r, c), getWestCell(r, c));
+                // only move if car exists and hasn't moved yet
+                if (car != null && !moved.contains(car.getId())) {
+                    Position delta = car.getdir().move();
                     int newRow = r + delta.row;
                     int newCol = c + delta.col;
 
-                    // Check if new position is within bounds and valid
+                    // Check if destination is valid
                     if (newRow >= 0 && newRow < rows &&
                             newCol >= 0 && newCol < collums &&
-                            this.Grid[newRow][newCol].getCar() == null &&
-                            this.Grid[newRow][newCol].getType() != Cell.Type.EMPTY) {
+                            this.grid[newRow][newCol].getcar() == null &&
+                            this.grid[newRow][newCol].getType() != cell.Type.EMPTY) {
 
-                        this.Grid[newRow][newCol].setCar(car);
-                        moved.add(new Position(newRow, newCol));
+                        this.grid[newRow][newCol].setCar(car);
+                        moved.add(car.getId());
                     }
-                    this.Grid[r][c].setCar(null);
+                    this.grid[r][c].setCar(null);
                 }
             }
         }
