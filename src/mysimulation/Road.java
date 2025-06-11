@@ -99,4 +99,9 @@ public class Road {
                 "%s [→:%d  ←:%d]",
                 name, queuePos.size(), queueNeg.size());
     }
+public Car peek(Direction dir) {
+    if (dir == Direction.POSITIVE) return queuePos.peek();
+    else if (dir == Direction.NEGATIVE) return queueNeg.peek();
+    else return null;
+}
 }
