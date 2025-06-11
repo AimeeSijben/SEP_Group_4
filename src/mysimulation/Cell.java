@@ -23,10 +23,6 @@ public class cell {
     }
 
     public void setType(Type type) {this.type = type;}
-
-    public void setCar( Car Car ){ this.car = Car;}
-    public void setTrafficLight( TrafficLight TrafficLight ){ this.TrafficLight = TrafficLight;}
-
     public Type getType() {
         if (car != null){
             return Type.CAR;
@@ -36,6 +32,14 @@ public class cell {
             return type;
         }
     }
+
+    public void setCar( Car Car ){ this.car = Car;}
+    public Car getcar(){ return this.car;}
+
+    public void setTrafficLight( TrafficLight TrafficLight ){ this.TrafficLight = TrafficLight;}
+    public TrafficLight getTrafficLight(){ return this.TrafficLight;}
+
+
 
     public String toString() {
         if (car != null){
