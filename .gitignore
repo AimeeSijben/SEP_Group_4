@@ -16,3 +16,10 @@ gradlew
 gradlew.bat
 
 
+.gradle/7.6/fileHashes/fileHashes.lock
+.gradle/buildOutputCleanup/buildOutputCleanup.lock
+build/classes/java/main/mysimulation/Grid.class
+build/reports/tests/test/index.html
+build/reports/tests/test/packages/mysimulation.html
+build/test-results/test/binary/results.bin
+build/tmp/compileJava/previous-compilation-data.bin
