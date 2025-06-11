@@ -1,6 +1,6 @@
 package mysimulation;
 
-public class cell {
+public class Cell {
     public enum Type {
         EMPTY,
         SPAWN,
@@ -16,7 +16,7 @@ public class cell {
     private Car car;
     private TrafficLight TrafficLight;
 
-    public cell() {
+    public Cell() {
         this.type = Type.EMPTY;
         this.car = null;
         this.TrafficLight = null;
