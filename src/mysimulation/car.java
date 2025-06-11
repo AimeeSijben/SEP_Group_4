@@ -1,17 +1,17 @@
 package mysimulation;
 
 public class Car {
-    private static long nextCarId = 0;
-    private final long carId;
+    private static long idCounter = 0;
+    private final long id;
     private final long arrivalTick;
 
-    public Car(long arrivalTick) {
-        this.carId = nextCarId++;
-        this.arrivalTick = arrivalTick;
+    public Car(long tick) {
+        this.id = idCounter++; //Assign ID
+        this.arrivalTick = tick; //Record arrival time
     }
 
-    public long getCarId() {
-        return carId;
+    public long getId() {
+        return id;
     }
 
     public long getArrivalTick() {
@@ -20,6 +20,6 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car-" + carId + " (Arrived: " + arrivalTick + ")";
+        return "Car#" + id + "(arrived:" + arrivalTick + ")";
     }
 }
