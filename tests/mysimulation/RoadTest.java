@@ -38,4 +38,24 @@ public class RoadTest {
         assertNull(road.peek(Road.Direction.NEGATIVE), "Negative queue should remain empty");
         assertEquals(0, road.getQueueLength(null), "Total queue length should be zero");
     }
+
+    @Test
+    void serve_WhenDirectionNegative_ShouldServeOnlyNegativeLane() {
+        // Given a Road with arrivalRate = 1.0 and two ticks of spawning
+        Road road = new Road("TestRoad", 1.0);
+        road.spawnCars(1L);
+        road.spawnCars(2L);
+
+        // Both queues should now have two cars each
+        assertEquals(2, road.getQueueLength(Road.Direction.POSITIVE), "Positive queue should have two cars");
+        assertEquals(2, road.getQueueLength(Road.Direction.NEGATIVE), "Negative queue should have two cars");
+
+        // When serving only the negative-direction lane with capacity=1
+        int served = road.serve(Road.Direction.NEGATIVE, 1);
+
+        // Then one car from negative is served, positive remains unchanged
+        assertEquals(1, served, "Should serve one car from negative lane");
+        assertEquals(2, road.getQueueLength(Road.Direction.POSITIVE), "Positive queue should remain unaffected");
+        assertEquals(1, road.getQueueLength(Road.Direction.NEGATIVE), "Negative queue should have one car left");
+    }
 }
