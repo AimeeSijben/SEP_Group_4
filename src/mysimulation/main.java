@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
 
+import static mysimulation.grid.*;
+
 public class main {
     public static int clockTime = 1;
     private volatile boolean paused = false;
@@ -29,7 +31,7 @@ public class main {
     }
 
 
-    private void Simulate(Scanner scanner){
+    private void Simulate(Scanner scanner, grid gird){
 
         Thread commandThread = new Thread(() -> Commands(scanner));
         commandThread.setDaemon(true);
@@ -37,6 +39,7 @@ public class main {
 
         while (running) {
             if (!paused){
+                gird.spawnCar();
                 /*
                 loop(trafic lights){
                     if( color =green ){
@@ -48,6 +51,9 @@ public class main {
                 } loop is for later if we want more intersections
                 from vihevile add new vihecile
                 */
+                gird.moveCar();
+                gird.printGrid();
+                System.out.println("\n");
             }else{
                 System.out.println("Paused.\n");
             }
@@ -61,7 +67,7 @@ public class main {
 
     }
 
-    public void getroad(Scanner scanner){
+    public void getroad(Scanner scanner, grid grid){
         List<String> inputLines = new ArrayList<>();
 
         System.out.println("Enter grid rows (use symbols like ↓ → ← ↑ E), one row per line.");
@@ -75,15 +81,17 @@ public class main {
             inputLines.add(line);
         }
 
-        grid grid = new grid(0,0); // assumes you have a no-arg constructor
+         // assumes you have a no-arg constructor
         grid.loadFromText(inputLines);
         grid.printGrid();
+        System.out.println("\n");
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         main simulation = new main();
-        simulation.getroad(scanner);
-        simulation.Simulate(scanner);
+        grid grid = new grid(0,0);
+        simulation.getroad(scanner, grid);
+        simulation.Simulate(scanner, grid);
     }
 }
