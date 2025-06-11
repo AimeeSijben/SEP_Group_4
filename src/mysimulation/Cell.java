@@ -1,6 +1,6 @@
 package mysimulation;
 
-public class cell {
+public class Cell {
     public enum Type {
         EMPTY,
         SPAWN,
