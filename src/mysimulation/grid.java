@@ -144,7 +144,7 @@ public class Grid {
                 }
 
                 if (car != null && !alreadyMoved) {
-                    Position delta = typeToDirection(this.Grid[r][c].getType()).move();
+                    Position delta = car.getdir().move();
                     int newRow = r + delta.row;
                     int newCol = c + delta.col;
 
