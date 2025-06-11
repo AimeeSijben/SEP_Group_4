@@ -43,6 +43,16 @@ public class Grid {
         }
     }
 
+    public Direction typeToDirection(Cell.Type type) {
+        return switch (type) {
+            case ROADUP -> Direction.NORTH;
+            case ROADDOWN -> Direction.SOUTH;
+            case ROADLEFT -> Direction.WEST;
+            case ROADRIGHT -> Direction.EAST;
+            default -> null;
+        };
+    }
+
     private void placeTraficlight() {
         int row = intersections.row;
         int col = intersections.col;
@@ -134,7 +144,7 @@ public class Grid {
                 }
 
                 if (car != null && !alreadyMoved) {
-                    Position delta = car.getdir().move();
+                    Position delta = typeToDirection(this.Grid[r][c].getType()).move();
                     int newRow = r + delta.row;
                     int newCol = c + delta.col;
 
