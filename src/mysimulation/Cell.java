@@ -1,6 +1,6 @@
 package mysimulation;
 
-public class cell {
+public class Cell {
     public enum Type {
         EMPTY,
         SPAWN,
@@ -12,41 +12,53 @@ public class cell {
         CAR,
         TRAFICLIGHT
     }
+
     private Type type;
     private Car car;
     private TrafficLight TrafficLight;
 
-    public cell() {
+    public Cell() {
         this.type = Type.EMPTY;
         this.car = null;
         this.TrafficLight = null;
     }
 
-    public void setType(Type type) {this.type = type;}
+    public void setType(Type type) {
+        this.type = type;
+    }
+
     public Type getType() {
-        if (car != null){
+        if (car != null) {
             return Type.CAR;
-        } else if (TrafficLight != null){
+        } else if (TrafficLight != null) {
             return Type.TRAFICLIGHT;
-        }else {
+        } else {
             return type;
         }
     }
 
-    public void setCar( Car Car ){ this.car = Car;}
-    public Car getcar(){ return this.car;}
+    public void setCar(Car Car) {
+        this.car = Car;
+    }
 
-    public void setTrafficLight( TrafficLight TrafficLight ){ this.TrafficLight = TrafficLight;}
-    public TrafficLight getTrafficLight(){ return this.TrafficLight;}
+    public Car getcar() {
+        return this.car;
+    }
 
+    public void setTrafficLight(TrafficLight TrafficLight) {
+        this.TrafficLight = TrafficLight;
+    }
 
+    public TrafficLight getTrafficLight() {
+        return this.TrafficLight;
+    }
 
     public String toString() {
-        if (car != null){
+        if (car != null) {
             return "C";
-        } else if (TrafficLight != null){
+        } else if (TrafficLight != null) {
             return "T";
-        }else
+        } else
             return switch (type) {
                 case ROADUP -> "↑";
                 case ROADDOWN -> "↓";
@@ -57,6 +69,6 @@ public class cell {
                 case CAR -> "C";
                 default -> "E";
 
-        };
+            };
     }
 }
