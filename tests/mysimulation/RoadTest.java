@@ -1,11 +1,3 @@
-// To compile:
-//   javac -cp path/to/junit-jupiter-api-5.x.x.jar:. src/mysimulation/Road.java test/mysimulation/RoadTest.java
-// To run tests and collect coverage (using JaCoCo agent + CLI):
-//   java -javaagent:path/to/jacocoagent.jar=destfile=jacoco.exec \
-//        -jar path/to/junit-platform-console-standalone.jar --class-path . --scan-class-path
-//   java -jar path/to/jacococli.jar report jacoco.exec \
-//        --classfiles src --sourcefiles src --csv coverage.csv
-//   grep "mysimulation/Road.java" coverage.csv
 
 package mysimulation;
 
@@ -30,5 +22,20 @@ public class RoadTest {
         Car car = road.peek(Road.Direction.POSITIVE);
         assertNotNull(car, "Positive queue should have a car");
         assertEquals(tick, car.getArrivalTick(), "Car timestamp should match the tick");
+    }
+
+    @Test
+    void spawnCars_WhenArrivalRateIsZero_ShouldNotEnqueueAnyCars() {
+        // Given a Road with arrivalRate = 0.0 (no cars ever spawn)
+        Road road = new Road("TestRoad", 0.0);
+        long tick = 10L;
+
+        // When spawning cars
+        road.spawnCars(tick);
+
+        // Then neither queue should receive a Car
+        assertNull(road.peek(Road.Direction.POSITIVE), "Positive queue should remain empty");
+        assertNull(road.peek(Road.Direction.NEGATIVE), "Negative queue should remain empty");
+        assertEquals(0, road.getQueueLength(null), "Total queue length should be zero");
     }
 }
