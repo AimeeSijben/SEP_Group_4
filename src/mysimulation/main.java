@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
 
-public class main {
-    private static int clockTime = 2000;
+public class Main {
+    public static int clockTime = 1;
     private volatile boolean paused = false;
     private volatile boolean running = true;
 
@@ -29,7 +29,7 @@ public class main {
     }
 
 
-    private void Simulate(Scanner scanner){
+    private void Simulate(Scanner scanner, Grid Gird){
 
         Thread commandThread = new Thread(() -> Commands(scanner));
         commandThread.setDaemon(true);
@@ -37,22 +37,17 @@ public class main {
 
         while (running) {
             if (!paused){
-                /*
-                loop(trafic lights){
-                    if( color =green ){
-                        remove care from que at stop light
-                        add that care to moving
-                    } esle{
-                    do nothing
-                    }
-                } loop is for later if we want more intersections
-                from vihevile add new vihecile
-                */
+                Gird.spawnCar();
+                Gird.updateGrid();
+                // here you add all the functions for updating the road or TrafficLight
+                Gird.printGrid();
+                System.out.println("\n");
             }else{
                 System.out.println("Paused.\n");
             }
+            clockTime ++;
             try {
-                Thread.sleep(clockTime); // 1000 milliseconds = 1 second
+                Thread.sleep(3000); // 1000 milliseconds = 1 second
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -60,7 +55,7 @@ public class main {
 
     }
 
-    public void getroad(Scanner scanner){
+    public void getroad(Scanner scanner, Grid grid){
         List<String> inputLines = new ArrayList<>();
 
         System.out.println("Enter grid rows (use symbols like ↓ → ← ↑ E), one row per line.");
@@ -74,15 +69,17 @@ public class main {
             inputLines.add(line);
         }
 
-        grid grid = new grid(0,0); // assumes you have a no-arg constructor
+         // assumes you have a no-arg constructor
         grid.loadFromText(inputLines);
         grid.printGrid();
+        System.out.println("\n");
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        main simulation = new main();
-        simulation.getroad(scanner);
-        simulation.Simulate(scanner);
+        Main simulation = new Main();
+        Grid grid = new Grid(0,0);
+        simulation.getroad(scanner, grid);
+        simulation.Simulate(scanner, grid);
     }
 }
