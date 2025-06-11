@@ -2,26 +2,15 @@ package mysimulation;
 
 import java.util.List;
 import java.util.ArrayList;
-
-public class Tuple {
-    public final int row;
-    public final int col;
-
-    public Tuple(int row, int col) {
-        this.row = row;
-        this.col = col;
-    }
-}
+import java.util.Random;
 
 public class grid {
     private cell[][] grid;
-    private List<Tuple> spawns = new ArrayList<>();
-    public List<Tuple> intersections = new ArrayList<>();
-
+    private List<Position> spawns = new ArrayList<>();
+    public List<Position> intersections = new ArrayList<>();
 
     public grid(int rows, int cols) {
         grid = new cell[rows][cols];
-
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
                 grid[r][c] = new cell();
@@ -42,11 +31,11 @@ public class grid {
                 grid[r][c] = cell;
 
                 if(cell.getType() == mysimulation.cell.Type.SPAWN){
-                    spawns.add(new Tuple(r, c));
+                    spawns.add(new Position(r, c));
                 }
 
                 if(cell.getType() == mysimulation.cell.Type.INTERSECTION){
-                    intersections.add(new Tuple(r, c));
+                    intersections.add(new Position(r, c));
                 }
             }
         }
@@ -63,6 +52,13 @@ public class grid {
             case "X" -> cell.Type.INTERSECTION;
             default -> throw new IllegalArgumentException("Unknown symbol: " + symbol);
         };
+    }
+
+    public void spawnCar(){
+        Random random = new Random();
+        int randomSpan = random.nextInt(spawns.size());
+        car car = new car(main.clockTime, spawns.get(randomSpan) );
+        car.cars.add(car);
     }
 
     public void printGrid() {
