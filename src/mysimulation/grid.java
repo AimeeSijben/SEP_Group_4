@@ -4,16 +4,16 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class grid {
-    private cell[][] grid;
+public class Grid {
+    private Cell[][] grid;
     private List<Position> spawns = new ArrayList<>();
     public List<Position> intersections = new ArrayList<>();
 
-    public grid(int rows, int cols) {
-        grid = new cell[rows][cols];
+    public Grid(int rows, int cols) {
+        grid = new Cell[rows][cols];
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
-                grid[r][c] = new cell();
+                grid[r][c] = new Cell();
             }
         }
     }
@@ -21,54 +21,53 @@ public class grid {
     public void loadFromText(List<String> lines) {
         int rows = lines.size();
         int cols = lines.get(0).split(" ").length;
-        grid = new cell[rows][cols];
+        grid = new Cell[rows][cols];
 
         for (int r = 0; r < rows; r++) {
             String[] symbols = lines.get(r).split(" ");
             for (int c = 0; c < cols; c++) {
-                cell cell = new cell();
-                cell.setType(charToCellType(symbols[c]));
-                grid[r][c] = cell;
+                Cell Cell = new Cell();
+                Cell.setType(charToCellType(symbols[c]));
+                grid[r][c] = Cell;
 
-                if(cell.getType() == mysimulation.cell.Type.SPAWN){
+                if (Cell.getType() == mysimulation.Cell.Type.SPAWN) {
                     spawns.add(new Position(r, c));
                 }
 
-                if(cell.getType() == mysimulation.cell.Type.INTERSECTION){
+                if (Cell.getType() == mysimulation.Cell.Type.INTERSECTION) {
                     intersections.add(new Position(r, c));
                 }
             }
         }
     }
 
-    private cell.Type charToCellType(String symbol) {
+    private Cell.Type charToCellType(String symbol) {
         return switch (symbol) {
-            case "↑" -> cell.Type.ROADUP;
-            case "↓" -> cell.Type.ROADDOWN;
-            case "←" -> cell.Type.ROADLEFT;
-            case "→" -> cell.Type.ROADRIGHT;
-            case "E" -> cell.Type.EMPTY;
-            case "S" -> cell.Type.SPAWN;
-            case "X" -> cell.Type.INTERSECTION;
+            case "↑" -> Cell.Type.ROADUP;
+            case "↓" -> Cell.Type.ROADDOWN;
+            case "←" -> Cell.Type.ROADLEFT;
+            case "→" -> Cell.Type.ROADRIGHT;
+            case "E" -> Cell.Type.EMPTY;
+            case "S" -> Cell.Type.SPAWN;
+            case "X" -> Cell.Type.INTERSECTION;
             default -> throw new IllegalArgumentException("Unknown symbol: " + symbol);
         };
     }
 
-    public void spawnCar(){
+    public void spawnCar() {
         Random random = new Random();
         int randomSpan = random.nextInt(spawns.size());
-        car car = new car(main.clockTime, spawns.get(randomSpan) );
-        car.cars.add(car);
+        Car Car = new Car(Main.clockTime);
+        // Car.Cars.add(Car);
     }
 
     public void printGrid() {
-        for (cell[] row : grid) {
-            for (cell cell : row) {
-                System.out.print(cell.toString() + " ");
+        for (Cell[] row : grid) {
+            for (Cell Cell : row) {
+                System.out.print(Cell.toString() + " ");
             }
             System.out.println();
         }
     }
-
 
 }

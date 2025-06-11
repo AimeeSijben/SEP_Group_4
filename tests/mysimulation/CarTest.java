@@ -18,13 +18,13 @@ public class CarTest {
 
     @Test
     void testDequeueCarGREEN() {
-        //Spawn a car and set light to green
-        road.spawnVehicles(0); // Spawn a car at tick 0
+        // Spawn a car and set light to green
+        road.spawnCars(0); // Spawn a car at tick 0
         assertEquals(1, road.getQueueLength(Road.Direction.POSITIVE), "Car should be in the queue");
         trafficLight.update(0); // Tick 0: light is green (even tick)
         assertEquals(TrafficLight.State.GREEN, trafficLight.getState(), "Light should be green");
 
-        //try to serve the road with green light
+        // try to serve the road with green light
         int served = road.serve(Road.Direction.POSITIVE, 1);
         assertEquals(1, served, "One car should be served");
         assertEquals(0, road.getQueueLength(Road.Direction.POSITIVE), "Queue should be empty");
@@ -32,13 +32,13 @@ public class CarTest {
 
     @Test
     void testNotDequeueCarRED() {
-        //Spawn a car and set light to red
-        road.spawnVehicles(0); // Spawn a car at tick 0
+        // Spawn a car and set light to red
+        road.spawnCars(0); // Spawn a car at tick 0
         assertEquals(1, road.getQueueLength(Road.Direction.POSITIVE), "Car should be in the queue");
         trafficLight.update(1);
         assertEquals(TrafficLight.State.RED, trafficLight.getState(), "Light should be red");
 
-        //try to serve the road with red light
+        // try to serve the road with red light
         int served = road.serve(Road.Direction.POSITIVE, 1);
         assertEquals(0, served, "No car should be served");
         assertEquals(1, road.getQueueLength(Road.Direction.POSITIVE), "Car should stay in the queue");
@@ -46,18 +46,18 @@ public class CarTest {
 
     @Test
     void testQueueOrderPreserved() {
-        //Spawn two cars, at different ticks
-        road.spawnVehicles(0);
-        road.spawnVehicles(1);
+        // Spawn two cars, at different ticks
+        road.spawnCars(0);
+        road.spawnCars(1);
         assertEquals(2, road.getQueueLength(Road.Direction.POSITIVE), "Two cars should be in the queue");
 
-        //Serve one car with green light
+        // Serve one car with green light
         trafficLight.update(0); // Tick 0: light is green
         int served = road.serve(Road.Direction.POSITIVE, 1);
         assertEquals(1, served, "One car should be served");
         assertEquals(1, road.getQueueLength(Road.Direction.POSITIVE), "One car should be in the queue");
 
-        //Serve a second car
+        // Serve a second car
         served = road.serve(Road.Direction.POSITIVE, 1);
         assertEquals(1, served, "Second car should be served");
         assertEquals(0, road.getQueueLength(Road.Direction.POSITIVE), "The queue should be empty");
@@ -77,4 +77,3 @@ public class CarTest {
         assertNotEquals(car1.getId(), car3.getId(), "Car IDs should be different");
     }
 }
-
