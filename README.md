@@ -17,6 +17,11 @@ Tested Road.java, created spawnCars_WhenArrivalRateIsOne_ShouldEnqueueCarWithCor
 ### Aimee Initial Test
 Tested Car.java, and Road.java. Created testUniqueId, which tests if Car generated a unique id for every car in the queues. Coverage was 3%. 
 
+### lucas Initial Test
+Tested Grid.java and Cell.Java with corectboardupload. witch tests if the board is taken corectly in to grid with the corect cells. Coverage was:26%
+image of Coverage:
+![image](https://github.com/user-attachments/assets/73da38af-dd90-4cd7-a874-3a6549500b2f)
+
 # Coverage Improvement
 
 ### Vincent coverage improvement
