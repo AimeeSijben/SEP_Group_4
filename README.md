@@ -38,7 +38,11 @@ In each commit, I added a new test to RoadTest.java. By adding these two tests, 
 I added testCarDequeued, which tests if a car is dequeued when the light is green, and created testCarNotDequeued which tests if a car is not dequeued when the light is red. Also created testQueueOrderPreserved which tests if the que actually decreases when a car is served. This increased the coverage of the entire program from 3% to 14%.
 
 ### lucas coverage improvement
-i added placeTraficlight witch test if the Traficlight i placed corectly at the intersection. i added spawnCarAtSpwanPoint witch checks if a car is spawned on a spawn block. i added carDespawnsAtBoarder witch tests if the car is at the boarder and moves will it get off the board. i added carsCanMove witch checks if the car moves by following the rode infront one cpace at a time.
+added placeTraficlight witch test if the Traficlight placed corectly at the intersection. 
+added spawnCarAtSpwanPoint witch checks if a car is spawned on a spawn block. 
+added carDespawnsAtBoarder witch tests if the car is at the boarder and moves will it get off the board. 
+added carsCanMove witch checks if the car moves by following the rode infront one cpace at a time.
+
 witch gave me a 45% coverage:
 ![image](https://github.com/user-attachments/assets/9218c1d0-f364-49dc-8bef-6b9479323974)
 
