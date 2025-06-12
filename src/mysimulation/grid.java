@@ -194,7 +194,7 @@ public class Grid {
             if (newRow >= 0 && newRow < rows &&
                     newCol >= 0 && newCol < collums &&
                     this.Grid[newRow][newCol].getType() != Cell.Type.EMPTY) {
-                if (  Grid[newRow][newCol].getCar() != null && !moved.contains(Grid[newRow][newCol].getCar().getId()) ) { // is there a moved  car infront
+                if (  Grid[newRow][newCol].getCar() != null && moved.contains(Grid[newRow][newCol].getCar().getId()) ) { // is there a moved  car infront
                     continue;
                 } else if (Grid[newRow][newCol].isCarAtTraficlight()) { // is the car at a traficlight
                     //add to que from road
