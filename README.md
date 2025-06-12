@@ -177,4 +177,12 @@ Features:
 ![](.\out\plantuml\trafficlightdiagram\traffic_light.svg)
 
 
+Test Coverage
+The first initial test was isConflict_PerpendicularWithDivisibleCycles_ReturnsTrue, it aimed to test if valid traffic lights would return a valid state back. It provided a baseline test coverage of 3%. 
+![](.\out\plantuml\testcoverage\isConflict_PerpendicularWithDivisibleCycles_ReturnsTrue.jpg)
+
+Combining the three tests isPerpendicular_VariousDirections_ReturnsCorrectValue, update_TimerAtHalfCycle_ChangesToGreenall and the initial isConflict_PerpendicularWithDivisibleCycles_ReturnsTrue test we go a coverage of 12%.
+![](.\out\plantuml\testcoverage\3tests.jpg)
+
+
 
