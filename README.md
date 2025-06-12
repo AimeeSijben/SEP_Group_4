@@ -21,6 +21,10 @@ Tested Car.java, and Road.java. Created testUniqueId, which tests if Car generat
 Tested Grid.java and Cell.Java with corectboardupload. witch tests if the board is taken corectly in to grid with the corect cells. Coverage was:26%
 image of Coverage:
 ![image](https://github.com/user-attachments/assets/73da38af-dd90-4cd7-a874-3a6549500b2f)
+### Bruno Initial Test
+Initial Coverage: My first test, isConflict_PerpendicularWithDivisibleCycles_ReturnsTrue, gave me a baseline 3% coverage. This percentage is low, but it reflects the low amount of tests that were used (1).
+![](.\out\plantuml\testcoverage\isConflict_PerpendicularWithDivisibleCycles_ReturnsTrue.jpg)
+
 
 # Coverage Improvement
 
@@ -34,6 +38,13 @@ In each commit, I added a new test to RoadTest.java. By adding these two tests, 
 ### Aimee coverage improvement
 I added testCarDequeued, which tests if a car is dequeued when the light is green, and created testCarNotDequeued which tests if a car is not dequeued when the light is red. Also created testQueueOrderPreserved which tests if the que actually decreases when a car is served. This increased the coverage of the entire program from 3% to 14%.
 
+### Bruno Coverage Improvement
+Improving Coverage: By adding two more tests, isPerpendicular_VariousDirections_ReturnsCorrectValue and update_TimerAtHalfCycle_ChangesToGreen, and combining them with my initial conflict test, I increased my overall coverage to 12%. This directly reflects the assignment's goal of writing more tests to improve coverage and then measuring that improvement. I have written more tests that do not seem relevant in this phase as they are obvious in their functionality eg the max function should always return the maximum given that it builds upon very basic atomic instructions.
+![](.\out\plantuml\testcoverage\3tests.jpg)
+Diagrams
+I created 6 diagrams which help to visually illustrate the inner workings of the system. They have been created using plantuml which allows for dynamic compilation of said diagrams
+
+
 
 
 | Member | Three functions (names with links to the code on the repository) created | Initial test (name) | Other tests (names) |
@@ -41,7 +52,7 @@ I added testCarDequeued, which tests if a car is dequeued when the light is gree
 | Vincent Wren-Larocca | [Functions within Road.java](https://github.com/AimeeSijben/SEP_Group_4/blob/main/src/mysimulation/Road.java) | spawnCars_WhenArrivalRateIsOne_ShouldEnqueueCarWithCorrectTimestamp| spawnCars_WhenArrivalRateIsZero_ShouldNotEnqueueAnyCars, serve_WhenDirectionNegative_ShouldServeOnlyNegativeLane|
 | Aimée Sijben | Functions within Car.java (https://github.com/AimeeSijben/SEP_Group_4/blob/main/src/mysimulation/Car.java)| | |
 | Lucas van krevel | worked on Functions within Grid.java (https://github.com/AimeeSijben/SEP_Group_4/blob/main/src/mysimulation/grid.java) and worked on Functions within Cell.java (https://github.com/AimeeSijben/SEP_Group_4/blob/main/src/mysimulation/Cell.java) | corectboardupload, placeTraficlight, spawnCarAtSpwanPoint| carDespawnsAtBoarder, carsCanMove |
-| Member D | | | |
+| Member Bruno| Functions within TrafficLight.java (https://github.com/AimeeSijben/SEP_Group_4/blob/main/src/mysimulation/TrafficLight.java)|isConflict,isPerpendicular,update,max,min,iseven,setState,getState,TrafficLight | |
 
 
 
