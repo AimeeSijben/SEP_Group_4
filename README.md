@@ -61,7 +61,7 @@ I created 6 diagrams which help to visually illustrate the inner workings of the
 | Vincent Wren-Larocca | [Functions within Road.java](https://github.com/AimeeSijben/SEP_Group_4/blob/main/src/mysimulation/Road.java) | spawnCars_WhenArrivalRateIsOne_ShouldEnqueueCarWithCorrectTimestamp| spawnCars_WhenArrivalRateIsZero_ShouldNotEnqueueAnyCars, serve_WhenDirectionNegative_ShouldServeOnlyNegativeLane|
 | Aimée Sijben | Functions within Car.java (https://github.com/AimeeSijben/SEP_Group_4/blob/main/src/mysimulation/Car.java)| | |
 | Lucas van krevel | worked on Functions within Grid.java (https://github.com/AimeeSijben/SEP_Group_4/blob/main/src/mysimulation/grid.java) and worked on Functions within Cell.java (https://github.com/AimeeSijben/SEP_Group_4/blob/main/src/mysimulation/Cell.java) | corectboardupload, placeTraficlight, spawnCarAtSpwanPoint| carDespawnsAtBoarder, carsCanMove |
-| Member Bruno| Functions within TrafficLight.java (https://github.com/AimeeSijben/SEP_Group_4/blob/main/src/mysimulation/TrafficLight.java)|isConflict,isPerpendicular,update,max,min,iseven,setState,getState,TrafficLight | |
+| Member Bruno| Functions within TrafficLight.java (https://github.com/AimeeSijben/SEP_Group_4/blob/main/src/mysimulation/TrafficLight.java)|isConflict|isPerpendicular,update,max,min,iseven,setState,getState,TrafficLight  |
 
 
 
