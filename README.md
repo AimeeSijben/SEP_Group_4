@@ -34,7 +34,7 @@ Add more coverage improvements here
 | Member | Three functions (names with links to the code on the repository) created | Initial test (name) | Other tests (names) |
 | --- | --- | --- | --- |
 | Vincent Wren-Larocca | [Functions within Road.java](https://github.com/AimeeSijben/SEP_Group_4/blob/main/src/mysimulation/Road.java) | spawnCars_WhenArrivalRateIsOne_ShouldEnqueueCarWithCorrectTimestamp| spawnCars_WhenArrivalRateIsZero_ShouldNotEnqueueAnyCars, serve_WhenDirectionNegative_ShouldServeOnlyNegativeLane|
-| Aimée Sijben | [Functions within Car.java] (https://github.com/AimeeSijben/SEP_Group_4/blob/main/src/mysimulation/Car.java)| | |
+| Aimée Sijben | Functions within Car.java (https://github.com/AimeeSijben/SEP_Group_4/blob/main/src/mysimulation/Car.java)| | |
 | Member C | | | |
 | Member D | | | |
 
