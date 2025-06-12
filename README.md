@@ -19,7 +19,7 @@ Tested Car.java, and Road.java. Created testUniqueId, which tests if Car generat
 
 ### lucas Initial Test
 Tested Grid.java and Cell.Java with corectboardupload. witch tests if the board is taken corectly in to grid with the corect cells. 
-Coverage was:26%
+Coverage was:15%
 ![image](https://github.com/user-attachments/assets/73da38af-dd90-4cd7-a874-3a6549500b2f)
 ### Bruno Initial Test
 Initial Coverage: My first test, isConflict_PerpendicularWithDivisibleCycles_ReturnsTrue, gave me a baseline 3% coverage. This percentage is low, but it reflects the low amount of tests that were used (1).
@@ -38,8 +38,12 @@ In each commit, I added a new test to RoadTest.java. By adding these two tests, 
 I added testCarDequeued, which tests if a car is dequeued when the light is green, and created testCarNotDequeued which tests if a car is not dequeued when the light is red. Also created testQueueOrderPreserved which tests if the que actually decreases when a car is served. This increased the coverage of the entire program from 3% to 14%.
 
 ### lucas coverage improvement
-i added placeTraficlight witch test if the Traficlight i placed corectly at the intersection. i added spawnCarAtSpwanPoint witch checks if a car is spawned on a spawn block. i added carDespawnsAtBoarder witch tests if the car is at the boarder and moves will it get off the board. i added carsCanMove witch checks if the car moves by following the rode infront one cpace at a time.
-witch gave me a 45% coverage:
+added placeTraficlight witch test if the Traficlight placed corectly at the intersection. 
+added spawnCarAtSpwanPoint witch checks if a car is spawned on a spawn block. 
+added carDespawnsAtBoarder witch tests if the car is at the boarder and moves will it get off the board. 
+added carsCanMove witch checks if the car moves by following the rode infront one cpace at a time.
+
+witch gave me a 29% coverage:
 ![image](https://github.com/user-attachments/assets/9218c1d0-f364-49dc-8bef-6b9479323974)
 
 ### Bruno Coverage Improvement
