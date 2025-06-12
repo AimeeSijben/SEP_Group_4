@@ -27,6 +27,8 @@ public class Cell {
         this.type = type;
     }
 
+    public Type getBoardType() {return type; }
+
     public Type getType() {
         if (car != null) {
             return Type.CAR;
@@ -51,6 +53,13 @@ public class Cell {
 
     public TrafficLight getTrafficLight() {
         return this.TrafficLight;
+    }
+
+    public boolean isCarAtTraficlight(){
+        if(this.TrafficLight != null && this.car != null){
+            return true;
+        }
+        return false;
     }
 
     public String toString() {
