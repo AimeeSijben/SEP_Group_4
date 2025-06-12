@@ -35,7 +35,7 @@ Add more coverage improvements here
 | --- | --- | --- | --- |
 | Vincent Wren-Larocca | [Functions within Road.java](https://github.com/AimeeSijben/SEP_Group_4/blob/main/src/mysimulation/Road.java) | spawnCars_WhenArrivalRateIsOne_ShouldEnqueueCarWithCorrectTimestamp| spawnCars_WhenArrivalRateIsZero_ShouldNotEnqueueAnyCars, serve_WhenDirectionNegative_ShouldServeOnlyNegativeLane|
 | Aimée Sijben | Functions within Car.java (https://github.com/AimeeSijben/SEP_Group_4/blob/main/src/mysimulation/Car.java)| | |
-| Lucas van krevel | worked on Functions within Grid.java (https://github.com/AimeeSijben/SEP_Group_4/blob/main/src/mysimulation/grid.java) and worked on Functions within cell.java (https://github.com/AimeeSijben/SEP_Group_4/blob/main/src/mysimulation/Cell.java) | | |
+| Lucas van krevel | worked on Functions within Grid.java (https://github.com/AimeeSijben/SEP_Group_4/blob/main/src/mysimulation/grid.java) and worked on Functions within Cell.java (https://github.com/AimeeSijben/SEP_Group_4/blob/main/src/mysimulation/Cell.java) | corectboardupload, placeTraficlight, spawnCarAtSpwanPoint| carDespawnsAtBoarder, carsCanMove |
 | Member D | | | |
 
 
