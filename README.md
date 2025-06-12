@@ -113,6 +113,8 @@ Components:
 
     Cells may hold Cars/TrafficLights
 
+    Car spawns at a random Spawn point with a direction.
+
     Strong typing with enums for state
 ![](.\out\plantuml\griddiagram\grid_structure.svg)
 
