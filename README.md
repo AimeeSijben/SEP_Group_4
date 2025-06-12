@@ -53,6 +53,7 @@ Diagrams
 I created 6 diagrams which help to visually illustrate the inner workings of the system. They have been created using plantuml which allows for dynamic compilation of said diagrams
 
 # Total Coverage
+61% instruction coverage and 50% branch coverage
 ![image](https://github.com/user-attachments/assets/bceeea56-7c23-439e-a2d7-9d667df2c1c7)
 
 | Member | Three functions (names with links to the code on the repository) created | Initial test (name) | Other tests (names) |
