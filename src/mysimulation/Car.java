@@ -29,6 +29,10 @@ public class Car {
     public long getId() {
         return id;
     }
+    
+    public static void resetIdCounter() {
+        idCounter = 0;
+    }
 
     public long getArrivalTick() {
         return arrivalTick;
