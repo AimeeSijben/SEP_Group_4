@@ -38,11 +38,9 @@ In each commit, I added a new test to RoadTest.java. By adding these two tests, 
 I added testCarDequeued, which tests if a car is dequeued when the light is green, and created testCarNotDequeued which tests if a car is not dequeued when the light is red. Also created testQueueOrderPreserved which tests if the que actually decreases when a car is served. This increased the coverage of the entire program from 3% to 14%.
 
 ### lucas coverage improvement
-i added placeTraficlight witch test if the Traficlight i placed corectly at the intersection.
-i added spawnCarAtSpwanPoint witch checks if a car is spawned on a spawn block.
-i added carDespawnsAtBoarder witch tests if the car is at the boarder and moves will it get off the board.
-i added carsCanMove witch checks if the car moves by following the rode infront one cpace at a time.
+i added placeTraficlight witch test if the Traficlight i placed corectly at the intersection. i added spawnCarAtSpwanPoint witch checks if a car is spawned on a spawn block. i added carDespawnsAtBoarder witch tests if the car is at the boarder and moves will it get off the board. i added carsCanMove witch checks if the car moves by following the rode infront one cpace at a time.
 witch gave me a 45% coverage:
+![image](https://github.com/user-attachments/assets/9218c1d0-f364-49dc-8bef-6b9479323974)
 
 ### Bruno Coverage Improvement
 Improving Coverage: By adding two more tests, isPerpendicular_VariousDirections_ReturnsCorrectValue and update_TimerAtHalfCycle_ChangesToGreen, and combining them with my initial conflict test, I increased my overall coverage to 12%. This directly reflects the assignment's goal of writing more tests to improve coverage and then measuring that improvement. I have written more tests that do not seem relevant in this phase as they are obvious in their functionality eg the max function should always return the maximum given that it builds upon very basic atomic instructions.
