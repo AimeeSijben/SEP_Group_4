@@ -14,8 +14,8 @@ Tested Road.java, created spawnCars_WhenArrivalRateIsOne_ShouldEnqueueCarWithCor
 ![](.\out\plantuml\Test-Coverage-Results\OneRoadTest.png)
 
 
-Add more initial tests here
-
+### Aimee Initial Test
+Tested Car.java, and Road.java. Created testUniqueId, which tests if Car generated a unique id for every car in the queues. Coverage was 3%. 
 
 # Coverage Improvement
 
@@ -26,8 +26,8 @@ In each commit, I added a new test to RoadTest.java. By adding these two tests, 
 ![](.\out\plantuml\Test-Coverage-Results\ThreeRoadTests.png)
 
 
-Add more coverage improvements here
-
+### Aimee coverage improvement
+I added testCarDequeued, which tests if a car is dequeued when the light is green, and created testCarNotDequeued which tests if a car is not dequeued when the light is red. Also created testQueueOrderPreserved which tests if the que actually decreases when a car is served. This increased the coverage of the entire program from 3% to 14%.
 
 
 
